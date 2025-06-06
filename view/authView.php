@@ -51,7 +51,7 @@ class AuthView {
                 <label for="senha">Senha:</label>
                 <input type="password" id="senha" name="senha" required minlength="6">
 
-                <label for="data_nascimento">Data de Nascimento (YYYY-MM-DD):</label>
+                <label for="data_nascimento">Data de Nascimento (DD/MM/AAAA):</label>
                 <input type="date" id="data_nascimento" name="data_nascimento" required>
 
                 <button type="submit">Cadastrar</button>
@@ -72,7 +72,7 @@ class AuthView {
                 <label for="cpf">CPF (XXX.XXX.XXX-XX):</label>
                 <input type="text" id="cpf" name="cpf" pattern="\d{3}\.\d{3}\.\d{3}-\d{2}" placeholder="000.000.000-00" required>
 
-                <label for="data_nascimento">Data de Nascimento (YYYY-MM-DD):</label>
+                <label for="data_nascimento">Data de Nascimento (DD/MM/AAAA):</label>
                 <input type="date" id="data_nascimento" name="data_nascimento" required>
 
                 <button type="submit">Recuperar Senha</button>

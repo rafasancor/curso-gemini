@@ -37,7 +37,7 @@ class AlunoView {
                 <label for="senha">Senha (deixe em branco para não alterar):</label>
                 <input type="password" id="senha" name="senha" minlength="6">
 
-                <label for="data_nascimento">Data de Nascimento (YYYY-MM-DD):</label>
+                <label for="data_nascimento">Data de Nascimento (DD/MM/AAA):</label>
                 <input type="date" id="data_nascimento" name="data_nascimento" value="<?= htmlspecialchars($aluno?->getDataNascimento() ?? "") ?>" required>
 
                 <button type="submit" name="enviaForm">
