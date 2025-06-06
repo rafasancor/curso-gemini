@@ -9,7 +9,8 @@ session_start();
 use App\Controller\CursoController;
 use App\Controller\AlunoController;
 use App\Controller\MatriculaController;
-use App\Controller\AuthController; // New Auth Controller
+use App\Controller\AuthController;
+use App\Dal\CursoDao; // Adicione esta linha para incluir o CursoDao
 
 require_once("./autoload.php");
 ?>
@@ -33,7 +34,11 @@ require_once("./autoload.php");
 
         // Handle routing based on the 'p' parameter
         match($page) {
-            "home" => require_once("./view/home.php"),
+            "home" => (function() {
+                // Busca os cursos do banco de dados para a página inicial
+                $featuredCourses = CursoDao::listar(); // Use o método listar do CursoDao
+                require_once("./view/home.php");
+            })(),
             "cursos" => CursoController::listarCursosPublico(), // Public list of courses
             "sobre_nos" => require_once("./view/sobreNos.php"),
 
@@ -76,17 +81,6 @@ require_once("./autoload.php");
     </main>
     <footer>
         <?php require_once("./footer.php");?>
-        <!-- <div class="footer-content">
-            <p>&copy; <?= date("Y") ?> Plataforma de Cursos Online. Todos os direitos reservados.</p>
-            <p>Seu futuro começa aqui. Aprenda, cresça, inove!</p>
-            <p>Contato: <a href="mailto:suporte@plataformadecursos.com">suporte@plataformadecursos.com</a></p>
-            <div class="social-links">
-                <a href="#" target="_blank">Facebook</a>
-                <a href="#" target="_blank">Instagram</a>
-                <a href="#" target="_blank">LinkedIn</a>
-            </div>
-            <p><a href="?p=sobre_nos">Sobre Nós</a> | <a href="?p=home">Política de Privacidade</a></p>
-        </div> -->
     </footer>
 </body>
 </html>
